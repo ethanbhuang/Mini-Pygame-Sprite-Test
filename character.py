@@ -2,7 +2,23 @@ from main import pygame
 import animatedSprite, pyganim
 
 class Character(pygame.sprite.Sprite):
+    """
+    A Character class with properties for position, speed, and lives
+    """
+
     def __init__(self,pos,screen):
+        """
+        Initializes a Character object
+
+        Args:
+            self (Character) a Character object
+            pos (tuple): a tuple containing an x and y integer
+            screen (pygame.Surface) a pygame surface object
+
+        Returns:
+            (None): None
+        """
+
         pygame.sprite.Sprite.__init__(self)
         self.SCREEN_LIMITS = screen.get_size()
         self.x, self.y = pos
@@ -32,10 +48,32 @@ class Character(pygame.sprite.Sprite):
         self.animObjs[self.direction].pause()
 
     def setDirection(self,direction):
+        """
+        Changes the object's direction
+
+        Args:
+            self (Character): a Controller object
+            direction (str): a string correlating to animObjs
+
+        Returns:
+            (None): None
+        """
+
         if self.direction != direction:
             self.direction = direction
 
     def move(self, direction):
+        """
+        Change's the object's position
+
+        Args:
+            self (Character): a Character Object
+            direction (str): a string correlating to animObjs
+
+        Returns:
+            (None): None
+        """
+
         if self.running == True:
             self.speed = 4
         else:
@@ -44,21 +82,28 @@ class Character(pygame.sprite.Sprite):
         if direction == "UP":
             self.setDirection(direction)
             self.animObjs[self.direction].play()
+
             if not self.y - self.speed < 0:
                 self.y -= self.speed
+
         elif direction == "DOWN":
             self.setDirection(direction)
             self.animObjs[self.direction].play()
+
             if not self.y + self.speed > self.SCREEN_LIMITS[1] - 64:
                 self.y += self.speed
+
         elif direction == "LEFT":
             self.setDirection(direction)
             self.animObjs[self.direction].play()
+
             if not self.x - self.speed < 0:
                 self.x -= self.speed
+
         elif direction == "RIGHT":
             self.setDirection(direction)
             self.animObjs[self.direction].play()
+
             if not self.x + self.speed > self.SCREEN_LIMITS[0] - 64:
                 self.x += self.speed
 

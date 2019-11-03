@@ -1,7 +1,23 @@
 from main import pygame, character, obstacle, button, sys
 
 class Controller():
+    """
+    A Controller class
+    """
+
     def __init__(self, width=800, height=600):
+        """
+        Initializes a Controller object
+
+        Args:
+            self (Controller): a Controller object
+            width (int): the display's width
+            height (int): the display's height
+
+        Returns:
+            (None): None
+        """
+
         pygame.font.init()
         self.width = width
         self.height = height
@@ -22,6 +38,16 @@ class Controller():
         self.setGame()
 
     def setGame(self):
+        """
+        Resets the game's parameter
+
+        Args:
+            self (Controller): a Controller object
+
+        Returns:
+            (None): None
+        """
+
         self.player.lives = 3
         self.player.x, self.player.y = self.width/2, self.height/2
         self.player.setDirection("DOWN")
@@ -32,6 +58,16 @@ class Controller():
         self.state = "START"
 
     def mainLoop(self):
+        """
+        The game's main loop controlling
+
+        Args:
+            self (Controller): a Controller object
+
+        Returns:
+            (None): None
+        """
+
         while self.running:
             if self.state == "START":
                 self.startLoop()
@@ -41,6 +77,16 @@ class Controller():
                 self.endLoop()
 
     def startLoop(self):
+        """
+        The game's start screen
+
+        Args:
+            self (Controller): a Controller object
+
+        Returns:
+            (None): None
+        """
+
         while self.state == "START":
             self.background.fill((255,255,255))
             self.windowSurface.blit(self.background,(0,0))
@@ -59,6 +105,16 @@ class Controller():
             pygame.display.update()
 
     def gameLoop(self):
+        """
+        The game's game screen
+
+        Args:
+            self (Controller): a Controller object
+
+        Returns:
+            (None): None
+        """
+
         pygame.key.set_repeat(1,50)
         while self.state == "GAME":
             for event in pygame.event.get():
@@ -108,6 +164,16 @@ class Controller():
             pygame.display.update()
 
     def endLoop(self):
+        """
+        The game's end screen
+
+        Args:
+            self (Controller): a Controller object
+
+        Returns:
+            (None): None
+        """
+
         while self.state == "END":
             self.background.fill((255,255,255))
             self.windowSurface.blit(self.background,(0,0))
