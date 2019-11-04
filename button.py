@@ -1,4 +1,4 @@
-from main import pygame
+import pygame
 
 class Button:
     """
