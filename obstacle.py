@@ -1,4 +1,4 @@
-from main import pygame
+import pygame
 import random
 
 class Obstacle(pygame.sprite.Sprite):

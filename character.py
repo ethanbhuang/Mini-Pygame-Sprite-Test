@@ -1,5 +1,6 @@
-from main import pygame
-import animatedSprite, pyganim
+import pygame
+import animatedSprite
+import pyganim
 
 class Character(pygame.sprite.Sprite):
     """

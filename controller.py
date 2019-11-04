@@ -1,4 +1,8 @@
-from main import pygame, character, obstacle, button, sys
+import pygame
+import character
+import obstacle
+import button
+import sys
 
 class Controller():
     """

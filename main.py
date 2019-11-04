@@ -1,5 +1,3 @@
-import pygame, controller, character, obstacle, button, sys
-
 def main():
     pygame.init()
 
