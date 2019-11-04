@@ -52,6 +52,7 @@ class Controller():
         self.player.x, self.player.y = self.width/2, self.height/2
         self.player.setDirection("DOWN")
         self.player.animObjs[self.player.direction].pause()
+        self.player.running = False
         self.obstacles.empty()
         for i in range(10):
             self.obstacles.add(obstacle.Obstacle(self.windowSurface))
